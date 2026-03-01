@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <title>LISTA</title>
+  <title>INVITACION DIGITAL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fuente -->
@@ -14,7 +14,7 @@
     }
 
     .padre {
-      font-family: 'Baloo 2', sans-serif; cursive;
+      font-family: 'Shadows Into Light', cursive;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -22,11 +22,11 @@
     }
 
     .hijo {
-   /*   border: 1px solid #FFD700;
+      border: 1px solid #FFD700;
       box-shadow: 
         0 0 12px rgba(255, 215, 0, 0.7),
         0 0 24px rgba(255, 215, 0, 0.5),
-        0 0 36px rgba(255, 215, 0, 0.3);*/
+        0 0 36px rgba(255, 215, 0, 0.3);
       width: 90%;
       max-width: 400px;
       height: 600px;
@@ -35,13 +35,12 @@
       justify-content: center;
       align-items: center;
       font-weight: bold;
-      background-image: url("https://i.ibb.co/q3jNqp05/IMG-20260224-WA0003.jpg");
-      background-size: 110% 100%;
-  background-position: center;
-  box-sizing: border-box;
-  opacity: 1; /* ahora siempre visible */
-  margin: 20px auto;
-  text-align: center;
+      background-image: url("https://i.ibb.co/Kcf7vx1p/image-1770932827305.jpg");
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 2s ease;
+      text-align: center;
     }
 
     .hijo.visible {
@@ -57,7 +56,7 @@
     }
 
     #matrix-text {
-      font-size:25px;
+      font-size: 3em;
       white-space: pre;
       animation: colorShift 3s infinite alternate;
     }
@@ -67,7 +66,7 @@
       opacity: 0;
       transform: translateY(-400px);
       display: inline-block;
-      animation: caer 3s forwards;
+      animation: caer 5s forwards;
     }
 
     @keyframes caer {
@@ -84,10 +83,9 @@
 
     /* Animaciones para los demás elementos */
     #slide-p {
-    font-size:20px;
+    font-size: 1.5em;
       opacity: 0;
       transform: translateX(-100px);
-      color:white;
     }
     #slide-p.visible {
       animation: slideRight 5s forwards, colorShift 3s infinite alternate;
@@ -104,7 +102,7 @@
       
       border: 1px solid #FFD700;
   border-radius: 40px;
-/*  padding: 15px;*/
+  padding: 15px;
   width: 180px;
   background-color: transparent;
   box-shadow: 
@@ -115,7 +113,7 @@
   margin:10px;
     }
     #link1.visible {
-      animation: downLink 3s forwards, colorShift 3s infinite alternate;
+      animation: downLink 5s forwards, colorShift 3s infinite alternate;
     }
     @keyframes downLink {
       to { opacity: 1; transform: translateY(0); }
@@ -127,7 +125,7 @@
       
       border: 1px solid #FFD700;
   border-radius: 40px;
- /* padding: 15px;*/
+  padding: 15px;
   width: 180px;
   background-color: transparent;
   box-shadow: 
@@ -138,7 +136,7 @@
   margin:10px;
     }
     #link2.visible {
-      animation: rotateLink 3s forwards, colorShift 3s infinite alternate;
+      animation: rotateLink 5s forwards, colorShift 3s infinite alternate;
       text-decoration: none;
       font-size: 1.5em;
     }
@@ -153,7 +151,7 @@
       font-size: 1.5em;
       border: 1px solid #FFD700;
   border-radius: 40px;
-/*  padding: 15px;*/
+  padding: 15px;
   width: 180px;
   background-color: transparent;
   box-shadow: 
@@ -164,54 +162,63 @@
   margin:10px;
     }
     #link3.visible {
-      animation: zoomLink 3s forwards ease-out, colorShift 3s infinite alternate;
+      animation: zoomLink 5s forwards ease-out, colorShift 3s infinite alternate;
     }
     @keyframes zoomLink {
       to { opacity: 1; transform: scale(1); }
     }
     
     
-    #link4 {
-    font-size: 1.5em;
-      opacity: 0;
-      transform: translateY(400px);
-      text-decoration: none;
-      
-      border: 1px solid #FFD700;
-  border-radius: 40px;
-/*  padding: 15px;*/
-  width: 180px;
-  background-color: transparent;
-  box-shadow: 
-    0 0 12px rgba(255, 215, 0, 0.7),
-    0 0 24px rgba(255, 215, 0, 0.5),
-    0 0 36px rgba(255, 215, 0, 0.3);
-  text-align: center;
-  margin:10px;
-    }
-    #link4.visible {
-      animation: downLink 3s forwards, colorShift 3s infinite alternate;
-    }
-    @keyframes downLink {
-      to { opacity: 1; transform: translateY(0); }
-    }
+    
+    /*imagen de portada*/*
+
+.logo-container {
+  width: 220px;       /* tamaño del círculo */
+  height: 220px;      /* mismo valor para ancho y alto */
+  border-radius: 50%; /* recorte circular */
+  overflow: hidden;   /* oculta todo lo que sobresalga */
+  margin: 10px auto 0px auto;
+  position: relative;
+}
+.logo-container {
+  width: 220px;       /* cuadrado */
+  height: 220px;
+  border-radius: 50%; /* círculo perfecto */
+  overflow: hidden;   /* recorta la imagen dentro */
+  border: 1px solid #FFD700;
+      box-shadow: 
+        0 0 12px rgba(255, 215, 0, 0.7),
+        0 0 24px rgba(255, 215, 0, 0.5),
+        0 0 36px rgba(255, 215, 0, 0.3);
+}
+
+.logo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* ajusta la imagen dentro */
+  display: block;
   </style>
 </head>
 <body>
   <div class="padre">
     <div class="hijo">
+    
+    <div class="logo-container">
+  <!--img src="https://i.ibb.co/fY4MWL0Y/copilot-image-1771951288823.png
+  " alt="Logo LuzNet"-->
+  
+  <img src="https://i.ibb.co/5G3ry4W/IMG20220730173828.jpg
+  " alt="Logo LuzNet">
+</div>
       <!-- data-text contiene la frase final -->
-      <h1 id="matrix-text" data-text="TIPOS DE INVITACION "></h1>
+      <h1 id="matrix-text" data-text="INVITADO #03"></h1>
        
-      <p id="slide-p">En este apartado encuentras los tipos de invitacion generica  
+      <p id="slide-p">Nombre del invitado
           
-      </p>
-      <a id="link1" href="pase 1.html">Basico</a>
-      <a id="link2" href="pase 2.html">Estandar</a>
-      <a id="link3" href="https://felipe021284.github.io/INVITACI-N-DIGITAL/pase%201.html
-      ">Premium</a>
-      <a id="link4" href="https://felipe021284.github.io/INVITACI-N-DIGITAL/pase%201.html
-      ">Premium plus</a>
+      <!--/p>
+      <a id="link1" href="pase 1.html">Invitado 1</a>
+      <a id="link2" href="pase 2.html">Invitado 2</a>
+      <a id="link3" href="pase 3.html">Invitado 3</a-->
     </div>
   </div>
 
@@ -253,7 +260,7 @@
           prepararMatrixTexto(); // activar efecto Matrix
 
           // Activar animaciones de los demás elementos
-          ['slide-p','link1','link2','link3','link4'].forEach(id => {
+          ['slide-p','link1','link2','link3'].forEach(id => {
             const el = document.getElementById(id);
             if (el) {
               el.classList.remove('visible');
