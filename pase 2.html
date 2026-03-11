@@ -73,15 +73,13 @@ font-family: 'Dancing Script';
   margin: 20px auto;         /* centrado horizontal en móvil */
   animation: animationcolor 10s infinite;
   text-align: center;        /* asegura que el texto se centre */
+  text-shadow: 
+  0 0 8px black, 
+  0 0 12px black,
+  0 0 10px black;
 }
 
-.hijo::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.3); /* filtro más suave */
-  z-index: 0; /* importante para no tapar el contenido */
-}
+
 .hijo * {
   position: relative;
   z-index: 1;
@@ -89,11 +87,13 @@ font-family: 'Dancing Script';
 
 .hijo p {
   margin: 0; /* elimina márgenes por defecto */
+  
 }
 
 p {
   font-size:20px;
   font-family: Times New Roman;
+ 
 }
 
 h1 {
@@ -604,10 +604,11 @@ hr {
 
 /* ====== Animación olas de playa (ciclo dorado ↔ blanco) ====== */
 @keyframes animationcolor {
-  0%,100% { color:pink; }
+  0%,100% { color:deeppink; }
   25% { color:white; }
-  50% { color:pink; }
-  75% { color:pink; }
+  50% { color:deeppink
+  ; }
+  75% { color:deeppink; }
 }
 
 /* ====== Imagen con zoom ====== */
@@ -709,7 +710,7 @@ Nombre quinceañera
       </div>
       <div class="audio-player">
     <audio id="song">
-      <source src="https://dl.dropbox.com/scl/fi/49eacpxgv0tmsts97l530/Bogota-MP3_160K.mp3?rlkey=gk0ibk5ld4qde03maaiuz8soy&st=v99fbfsg&dl=0
+      <source src="https://dl.dropbox.com/s/s0rv4nabsg2h0fw/SE%20BUSCA%28MP3_320K%29.mp3?dl=0
       " type="audio/mp3">
       Tu navegador no soporta audio HTML5.
     </audio>
