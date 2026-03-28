@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!-- =========================================
+   Propiedad de LuzNet ©
+   Creado por Felipe Jiménez
+   Así de fácil, así de impresionante, así     es LuzNet
+   ========================================= -->
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -582,25 +587,6 @@ hr {
 /*  margin: 10px auto;*/
   width: 100%;
 }
-/*
-.hijo7 p .space {
-  display: inline-block;
-  width: 0.6em;
-}
-*/
-/*
-.hijo7 p span {
-  display: inline;*/ /* importante para que text-align funcione 
-}
-*/
-/*
-.hijo7 p span.on {
-  animation: matrixFade 0.5s forwards;
-}*/
-/*
-.hijo7 p span.colorCycle {
-  animation: animationcolor 6s infinite ease-in-out;
-}*/
 
 /* ====== Animación olas de playa (ciclo dorado ↔ blanco) ====== */
 @keyframes animationcolor {
@@ -633,12 +619,7 @@ hr {
 
 
 
-/*
-#matrix-h1 span,
-.hijo7 p span{
-  display: inline-block;
-  animation: animationcolor 6s infinite ease-in-out;
-}*/
+
 /* H1: efecto olas infinito */
 #matrix-h1 span {
   display: inline-block;
@@ -654,34 +635,67 @@ hr {
 /*imagen de portada*/*
 
 .logo-container {
-  width: 220px;       /* tamaño del círculo */
-  height: 220px;      /* mismo valor para ancho y alto */
-  border-radius: 50%; /* recorte circular */
-  overflow: hidden;   /* oculta todo lo que sobresalga */
-  margin: 10px auto 0px auto;
-  position: relative;
-}
-.logo-container {
-  width: 220px;       /* cuadrado */
+  width: 220px;
   height: 220px;
-  border-radius: 50%; /* círculo perfecto */
-  overflow: hidden;   /* recorta la imagen dentro */
+  border-radius: 50%;
+  overflow: hidden;
   border: 1px solid deeppink;
   box-shadow: 0 0 15px deeppink;
+  margin: 10px auto;
+  position: relative;
+  transition: transform 2s ease; /* transición aplicada al contenedor */
+  transform: scale(0.2); /* 🔹 estado inicial: súper pequeño */
 }
 
 .logo-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover;  /* ajusta la imagen dentro */
+  object-fit: cover;
   display: block;
+}
+
+/* Estado activo: zoom */
+.logo-container.zoom-active {
+  transform: scale(1); /* vuelve al tamaño normal */
+}
+
+
+/*div8*/
+
+
+.hijo8 {
+  
+}
+
+/* Capa de píxeles encima */
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  z-index: 10;
+}
+
+.pixel {
+  background: black; /* dorado ceremonial */
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  aspect-ratio: 1 / 1;
+}
+
+.pixel.hide {
+  opacity: 0;
+}
   </style>
 
   
 </head>
 <body>
   <div class="padre">
-    <div class="hijo hijo1">
+  
+  <div class="hijo hijo1">
     <div class="logo-container">
   <!--img src="https://i.ibb.co/fY4MWL0Y/copilot-image-1771951288823.png
   " alt="Logo LuzNet"-->
@@ -699,6 +713,7 @@ Nombre quinceañera
       
      
     </div>
+    
     
     
      <div class="hijo hijo1">
@@ -729,6 +744,7 @@ Nombre quinceañera
     
 
     <div class="hijo hijo2">
+    <h1>Informacion del evento</h1>
       <p>En este apartado va información <br>
         sobre lugar, fecha y hora del evento <br>
         como también un contador regresivo</p>
@@ -816,15 +832,24 @@ De las distintas actividades del evento"></p>
 </div>
       
       </div>
-      <div class="hijo hijo5">
-  <h1 class="zoom">Qr pase de entrada</h1>
-  <img class="zoom" src="https://i.ibb.co/m519HpBP/qr-generico-2.jpg
-  " alt="pase-2">
-  <p class="zoom">Por favor confirma tu asistencia <br /> antes de la fecha.</p>
-  <div class="gps zoom">
-    <a href="https://wa.me/523312281872?text=Hola,%20confirmo%20mi%20asistencia%20al%20evento." class="btn">Confirmar</a>
-  </div>
+      
+      <div class="hijo hijo8" id="hijo8">
+  <h1>Confirmacion de asistencia</h1>
+  <iframe  src="https://docs.google.com/forms/d/e/1FAIpQLSc6GbUSxu8mot_eFIcBaNQuCxNwEvqiJHvesoOkom3RtBm__g/viewform?usp=publish-editor"
+          width="285" height="400"
+          frameborder="0" marginheight="0" marginwidth="0">
+    Cargando…
+  </iframe>
 </div>
+
+<div class="hijo hijo5">
+  <h1 class="zoom">Qr pase de entrada</h1>
+  <img class="zoom" src="https://i.ibb.co/99Pd6m2V/qr2.jpg
+  " alt="pase-2">
+  
+</div>
+      
+    
       
        <div class="hijo hijo7" id="hijo7">
   <h1 id="matrix-h1" data-text="Gracias por asistir"></h1>
@@ -1200,6 +1225,70 @@ function prepararMatrixTexto(elementId) {
     spans.forEach(span => span.classList.remove('colorCycle'));
   }, tiempoTotal + 10000); // 10 segundos de olas
 }
+
+
+// observer de la portada
+const observerPortada = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const contenedor = entry.target.querySelector('.logo-container');
+    if (!contenedor) return;
+
+    if (entry.isIntersecting) {
+      // Reinicia el efecto al entrar
+      contenedor.classList.remove('zoom-active');
+      void contenedor.offsetWidth; // fuerza reflow
+      contenedor.classList.add('zoom-active');
+    } else {
+      // Quita la clase al salir, para que pueda volver a activarse
+      contenedor.classList.remove('zoom-active');
+    }
+  });
+}, { threshold: 0.5 });
+
+const target = document.querySelector('.hijo1');
+observerPortada.observe(target);
+
+
+
+
+//div 8
+
+// Observer para hijo8
+const observerHijo8 = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Crear capa de píxeles encima
+      const overlay = document.createElement("div");
+      overlay.classList.add("overlay");
+      entry.target.appendChild(overlay);
+
+      // Generar 50 píxeles
+      for (let i = 0; i < 200; i++) {
+        const div = document.createElement("div");
+        div.classList.add("pixel");
+        overlay.appendChild(div);
+      }
+
+      // Animar desaparición aleatoria (revelando el contenido)
+      const pixels = overlay.querySelectorAll(".pixel");
+      pixels.forEach(pixel => {
+        const delay = Math.random() * 2000; // entre 0 y 2 segundos
+        setTimeout(() => {
+          pixel.classList.add("hide");
+        }, delay);
+      });
+
+      // Al final, quitar la capa para liberar el contenido
+      setTimeout(() => {
+        overlay.remove();
+      }, 2500);
+    }
+  });
+});
+
+// Observar el div hijo8
+const hijo8 = document.getElementById("hijo8");
+observerHijo8.observe(hijo8);
 
   </script>
 </body>
