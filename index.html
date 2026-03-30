@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!-- =========================================
+   Propiedad de LuzNet ©
+   Creado por Felipe Jiménez
+   Así de fácil, así de impresionante, así     es LuzNet
+   ========================================= -->
 <html lang="es">
 <head>
   <title>INVITACION DIGITAL</title>
@@ -6,10 +11,6 @@
 
   <!-- Fuente -->
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
-  
-  
-  
-  
   <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Montserrat&family=Lobster&family=Pacifico&family=Shadows+Into+Light&family=Dancing+Script&family=Raleway&family=Oswald&family=Playfair+Display&family=Indie+Flower&display=swap" rel="stylesheet">
 
   <style>
@@ -18,22 +19,22 @@
       background-color: black;
     }
 
-    .padre {
-      font-family: 'Dancing Script', cursive;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
+   .padre {
+   font-family: 'Dancing Script';
+   cursive;
+/*  font-family: 'Shadows Into Light', cursive;*/
+  display: flex;
+  flex-direction: column; /* apila verticalmente */
+  justify-content: flex-start; /* que inicie desde arriba */
+  align-items: center;
+  min-height: 100vh;
+  gap: 40px; /* espacio entre hijo1 y hijo2 */
+}
+   
 
     .hijo {
-    border: 1px solid pink;
+     border: 1px solid pink;
       box-shadow: 0 0 1px deeppink, 0 0 1px deeppink, 0 0 45px deeppink;
-    /*  border: 1px solid #FFD700;
-      box-shadow: 
-        0 0 12px rgba(255, 215, 0, 0.7),
-        0 0 24px rgba(255, 215, 0, 0.5),
-        0 0 36px rgba(255, 215, 0, 0.3);*/
       width: 90%;
       max-width: 400px;
       height: 600px;
@@ -48,29 +49,33 @@
       opacity: 0;
       transition: opacity 2s ease;
       text-align: center;
+      margin:10px;
     }
 
     .hijo.visible {
       opacity: 1;
-      font-family: 'Shadows Into Light';
+    }
+    
+    h1{
+        animation: rotateLink 5s forwards, colorShift 3s infinite alternate;
+        font-size: 2.8em;
+    }
+    p{
+        font-family: Times New Roman;
+    }
+    
+    /* Animación de cambio de color */
+    @keyframes colorShift {
+      0%   { color:deeppink; text-shadow: 0 0 10px black; }
+      50%  { color: #FFFFFF; text-shadow: 0 0 15px black; }
+      100% { color:deeppink; text-shadow: 0 0 20px black
+      ; }
     }
 
-    /* Animación de cambio de color */
- /*  @keyframes colorShift {
-  0%,100% { color:pink; }
-  25% { color:white; }
-  50% { color:pink; }
-  75% { color:pink; }
-}*/
-a{
-    color:black;
-}
-
     #matrix-text {
-      font-size: 2.7em;
+      font-size: 2.8em;
       white-space: pre;
-      animation: colorShift 5s infinite alternate;
-      font-family: 'Dancing Script';
+      animation: colorShift 3s infinite alternate;
     }
 
     /* Animación Matrix para cada letra */
@@ -98,10 +103,9 @@ a{
     font-size: 1.5em;
       opacity: 0;
       transform: translateX(-100px);
-      font-family: Times New Roman;
     }
     #slide-p.visible {
-      animation: slideRight 5s forwards, colorShift 5s infinite alternate;
+      animation: slideRight 5s forwards, colorShift 3s infinite alternate;
     }
     @keyframes slideRight {
       to { opacity: 1; transform: translateX(0); }
@@ -112,25 +116,19 @@ a{
       opacity: 0;
       transform: translateY(-400px);
       text-decoration: none;
-      font-family: Times New Roman;
       
-      border: 1px solid pink;
+      font-family: Times New Roman;
   border-radius: 40px;
   padding: 15px;
   width: 180px;
   background-color: transparent;
-  
-border: 1px solid pink;
+  border: 1px solid pink;
       box-shadow: 0 0 1px deeppink, 0 0 1px deeppink, 0 0 45px deeppink;
-/*  box-shadow: 
-    0 0 12px rgba(255, 215, 0, 0.7),
-    0 0 24px rgba(255, 215, 0, 0.5),
-    0 0 36px rgba(255, 215, 0, 0.3);*/
   text-align: center;
   margin:10px;
     }
     #link1.visible {
-      animation: downLink 5s forwards, colorShift 5s infinite alternate;
+      animation: downLink 5s forwards, colorShift 3s infinite alternate;
     }
     @keyframes downLink {
       to { opacity: 1; transform: translateY(0); }
@@ -139,23 +137,19 @@ border: 1px solid pink;
     #link2 {
       opacity: 0;
       transform: rotate(-180deg);
+      
       font-family: Times New Roman;
-      border: 1px solid pink;
   border-radius: 40px;
   padding: 15px;
   width: 180px;
   background-color: transparent;
   border: 1px solid pink;
       box-shadow: 0 0 1px deeppink, 0 0 1px deeppink, 0 0 45px deeppink;
-/*  box-shadow: 
-    0 0 12px rgba(255, 215, 0, 0.7),
-    0 0 24px rgba(255, 215, 0, 0.5),
-    0 0 36px rgba(255, 215, 0, 0.3);*/
   text-align: center;
   margin:10px;
     }
     #link2.visible {
-      animation: rotateLink 5s forwards, colorShift 5s infinite alternate;
+      animation: rotateLink 5s forwards, colorShift 3s infinite alternate;
       text-decoration: none;
       font-size: 1.5em;
     }
@@ -164,102 +158,188 @@ border: 1px solid pink;
     }
 
     #link3 {
-    font-family: Times New Roman;
       opacity: 0;
       transform: scale(0.2);
       text-decoration: none;
       font-size: 1.5em;
-      border: 1px solid pink;
+      font-family: Times New Roman;
   border-radius: 40px;
   padding: 15px;
   width: 180px;
   background-color: transparent;
   border: 1px solid pink;
       box-shadow: 0 0 1px deeppink, 0 0 1px deeppink, 0 0 45px deeppink;
-/*  box-shadow: 
-    0 0 12px rgba(255, 215, 0, 0.7),
-    0 0 24px rgba(255, 215, 0, 0.5),
-    0 0 36px rgba(255, 215, 0, 0.3);*/
   text-align: center;
   margin:10px;
     }
     #link3.visible {
-      animation: zoomLink 5s forwards ease-out,colorShift 5s infinite alternate;
+      animation: zoomLink 5s forwards ease-out, colorShift 3s infinite alternate;
     }
     @keyframes zoomLink {
       to { opacity: 1; transform: scale(1); }
     }
-   
+    
+    .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  z-index: 10;
+  pointer-events: none; /* no bloquea clics */
+}
+
+.pixel {
+  background: black; /* dorado ceremonial */
+  opacity: 1;
+  transition: opacity .1s ease;
+  aspect-ratio: 1 / 1;
+}
+
+.pixel.hide {
+  opacity: 0;
+}
   </style>
 </head>
 <body>
   <div class="padre">
-    <div class="hijo">
-      <!-- data-text contiene la frase final -->
+  
+    <div class="hijo hijo1">
+    <div class="overlay"></div>
+      <div class="seccion">
       <h1 id="matrix-text" data-text="Lista de invitados"></h1>
+    
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrbV0NfuoB99HAj3Ffcr_xbB2fXWbE9VS4g2Ffcj37an_ExLwoPKr9GRFWTT4am96FaeMY7tGXhdbV/pubhtml?gid=596167547&single=true&range=B1:C50"></iframe>
+  </div>
+
+  <div class="seccion">
+  
+    <h1>Conteo</h1>
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrbV0NfuoB99HAj3Ffcr_xbB2fXWbE9VS4g2Ffcj37an_ExLwoPKr9GRFWTT4am96FaeMY7tGXhdbV/pubhtml?gid=2041570483&single=true
+    "></iframe>
+  </div>
+    </div>
+    
+    
+    <div class="hijo hijo2">
+      <!-- data-text contiene la frase final -->
+      <h1 id="matrix-text" data-text="Enlaces"></h1>
        
       <p id="slide-p">En este apartado van  enlances <br /> a las invitaciones con QR
           
       </p>
-      <a id="link1" href="sobre 1.html">Invitado 1</a>
-      <a id="link2" href="sobre 2.html">Invitado 2</a>
-      <a id="link3" href="sobre 3.html">Invitado 3</a>
+      <a id="link1" href="pase 1.html">Invitado 1</a>
+      <a id="link2" href="pase 2.html">Invitado 2</a>
+      <a id="link3" href="pase 3.html">Invitado 3</a>
     </div>
+    
   </div>
 
   <script>
-    // Función para preparar el efecto Matrix
-    function prepararMatrixTexto() {
-      const p = document.getElementById('matrix-text');
-      if (!p) return;
+// Función genérica para preparar el efecto Matrix
+function prepararMatrixTexto(elemento) {
+  if (!elemento) return;
 
-      const texto = p.getAttribute('data-text');
-      p.textContent = ''; // limpiar contenido
+  const texto = elemento.getAttribute('data-text');
+  elemento.textContent = ''; // limpiar contenido
 
-      // Crear un orden aleatorio para las letras
-      const indices = [...texto.split('').keys()];
-      for (let i = indices.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [indices[i], indices[j]] = [indices[j], indices[i]];
-      }
+  const indices = [...texto.split('').keys()];
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i], indices[j]] = [indices[j], indices[i]];
+  }
 
-      texto.split('').forEach((letra, i) => {
-        const span = document.createElement('span');
-        if (letra === ' ') {
-          span.className = 'space';
-        } else {
-          span.textContent = letra;
-          const delay = indices[i] * 0.2; // retraso aleatorio
-          span.style.animationDelay = delay + 's';
+  texto.split('').forEach((letra, i) => {
+    const span = document.createElement('span');
+    if (letra === ' ') {
+      span.className = 'space';
+    } else {
+      span.textContent = letra;
+      const delay = indices[i] * 0.2;
+      span.style.animationDelay = delay + 's';
+    }
+    elemento.appendChild(span);
+  });
+}
+
+// Generar píxeles automáticamente para overlay en hijo1
+const overlay = document.querySelector('.hijo1 .overlay');
+if (overlay) {
+  for (let i = 0; i < 200; i++) {
+    const px = document.createElement('div');
+    px.className = 'pixel';
+    overlay.appendChild(px);
+  }
+}
+
+// Animar el pixel reveal con orden aleatorio
+function pixelReveal() {
+  const pixels = Array.from(document.querySelectorAll('.hijo1 .pixel'));
+
+  // Mezclar el array de píxeles (Fisher-Yates)
+  for (let i = pixels.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pixels[i], pixels[j]] = [pixels[j], pixels[i]];
+  }
+
+  // Ocultar en orden aleatorio
+  pixels.forEach((px, i) => {
+    setTimeout(() => {
+      px.classList.add('hide');
+    }, i * 10);
+  });
+}
+
+// Observer para hijo1 (Matrix + Pixel)
+const hijo1 = document.querySelector('.hijo1');
+const observer1 = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+
+      // Reiniciar píxeles
+      document.querySelectorAll('.hijo1 .pixel').forEach(px => {
+        px.classList.remove('hide');
+      });
+
+      // Matrix en hijo1
+      const matrix1 = document.querySelector('.hijo1 #matrix-text');
+      prepararMatrixTexto(matrix1);
+
+      // Pixel reveal aleatorio
+      pixelReveal();
+    }
+  });
+}, { threshold: 0.5 });
+
+if (hijo1) observer1.observe(hijo1);
+
+// Observer para hijo2 (Matrix + enlaces y texto)
+const hijo2 = document.querySelector('.hijo2');
+const observer2 = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+
+      // Matrix en hijo2
+      const matrix2 = document.querySelector('.hijo2 #matrix-text');
+      prepararMatrixTexto(matrix2);
+
+      // Animaciones de enlaces
+      ['slide-p','link1','link2','link3'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.classList.remove('visible');
+          void el.offsetWidth;
+          el.classList.add('visible');
         }
-        p.appendChild(span);
       });
     }
+  });
+}, { threshold: 0.5 });
 
-    // Observer para activar el efecto cuando aparece en pantalla
-    const hijo = document.querySelector('.hijo');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          hijo.classList.add('visible');
-          prepararMatrixTexto(); // activar efecto Matrix
-
-          // Activar animaciones de los demás elementos
-          ['slide-p','link1','link2','link3'].forEach(id => {
-            const el = document.getElementById(id);
-            if (el) {
-              el.classList.remove('visible');
-              void el.offsetWidth;
-              el.classList.add('visible');
-            }
-          });
-        }
-      });
-    }, { threshold: 0.5 });
-
-    if (hijo) {
-      observer.observe(hijo);
-    }
+if (hijo2) observer2.observe(hijo2);
   </script>
 </body>
 </html>
